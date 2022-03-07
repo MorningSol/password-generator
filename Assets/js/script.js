@@ -58,7 +58,7 @@ var generatePassword = function() {
   }
   else {
       window.alert("You need to provide a value between 8 and 128. Please try again.");
-      writePassword()
+      generatePassword()
   }
    return passwordString
 }
