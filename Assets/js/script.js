@@ -13,7 +13,7 @@ var generatePassword = function() {
    
   if (numberChoice <8 || numberChoice >128){
     window.alert("You need to provide a value between 8 and 128. Please try again.");
-    generatePassword() 
+    return generatePassword() 
   }
   else {  
     var lowerCase = window.confirm ("Would you like lowercase letters in your password?");
@@ -27,7 +27,7 @@ var generatePassword = function() {
       
   if (!lowerCase && !upperCase && !numericValues && !specialCharacterChoice) {
     window.alert("You must select at least one password variable");
-    generatePassword()
+    return generatePassword()
   }  
   else{
     debugger
