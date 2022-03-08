@@ -10,11 +10,12 @@ var generatePassword = function() {
   
   var numberChoice = window.prompt ("Please enter your the number of characters you would like your password to have.  Must be atleast 8 characters and no less than 128 ");
   numberChoice = parseInt(numberChoice);
-   
-  if (numberChoice <8 || numberChoice >128){
+  
+  if (numberChoice <8 || numberChoice >128 || isNaN(numberChoice)) {
     window.alert("You need to provide a value between 8 and 128. Please try again.");
     return generatePassword() 
   }
+  
   else {  
     var lowerCase = window.confirm ("Would you like lowercase letters in your password?");
     
@@ -30,7 +31,6 @@ var generatePassword = function() {
     return generatePassword()
   }  
   else{
-    debugger
     var passwordString = ""
     for(var i = 1; i <= numberChoice;) {
         
