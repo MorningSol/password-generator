@@ -7,61 +7,58 @@ var specialCharacters =  ["!", '"', "'", "@", "#", "$", "%", "^", "&", "*", "(",
 
 
 var generatePassword = function() {
-
+  
   var numberChoice = window.prompt ("Please enter your the number of characters you would like your password to have.  Must be atleast 8 characters and no less than 128 ");
   numberChoice = parseInt(numberChoice);
-  var passwordString = ""
-    
-  if (numberChoice >=8 && numberChoice <=128){
-    
+   
+  if (numberChoice <8 || numberChoice >128){
+    window.alert("You need to provide a value between 8 and 128. Please try again.");
+    generatePassword() 
+  }
+  else {  
     var lowerCase = window.confirm ("Would you like lowercase letters in your password?");
     
     var upperCase = window.confirm ("Would you like uppercase letters in your password?");
   
-    var NumericValues = window.confirm("Would you like numeric values in your password?");
+    var numericValues = window.confirm("Would you like numeric values in your password?");
 
     var specialCharacterChoice = window.confirm ("Would you like special characters in your password?");
-
+  }
+      
+  if (!lowerCase && !upperCase && !numericValues && !specialCharacterChoice) {
+    window.alert("You must select at least one password variable");
+    generatePassword()
+  }  
+  else{
+    debugger
+    var passwordString = ""
     for(var i = 1; i <= numberChoice;) {
+        
       if(lowerCase && i <= numberChoice) {
         passwordString += lowerCaseAlphabet[Math.floor(Math.random() * (lowerCaseAlphabet.length - 1))];
         i++;
       }
-      else {
-        continue
-      }
-  
+
       if(upperCase && i <= numberChoice) {
         passwordString += upperCaseAlphabet[Math.floor(Math.random() * (upperCaseAlphabet.length - 1))];
         i++;
       }
-      else {
-        continue
-      }
-  
-      if(NumericValues && i <= numberChoice) {
+            
+      if(numericValues && i <= numberChoice) {
         passwordString += numbers[Math.floor(Math.random() * (numbers.length - 1))];
         i++;
       }
-      else {
-        continue
-      }
-  
+            
       if(specialCharacterChoice && i <= numberChoice){
         passwordString += specialCharacters[Math.floor(Math.random() * (specialCharacters.length - 1))];
         i++;    
       }
-      else {
-      continue
-      } 
-    }
-  }
-  else {
-      window.alert("You need to provide a value between 8 and 128. Please try again.");
-      generatePassword()
-  }
-   return passwordString
-}
+    };    
+  }return passwordString
+};           
+      
+ 
+
 
 
 
@@ -74,8 +71,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
-
-  
+ 
 generateBtn.addEventListener("click", writePassword);
