@@ -35,22 +35,22 @@ var generatePassword = function() {
     for(var i = 1; i <= numberChoice;) {
         
       if(lowerCase && i <= numberChoice) {
-        passwordString += lowerCaseAlphabet[Math.floor(Math.random() * (lowerCaseAlphabet.length - 1))];
+        passwordString += lowerCaseAlphabet[Math.floor(Math.random() * (lowerCaseAlphabet.length +1))];
         i++;
       }
 
       if(upperCase && i <= numberChoice) {
-        passwordString += upperCaseAlphabet[Math.floor(Math.random() * (upperCaseAlphabet.length - 1))];
+        passwordString += upperCaseAlphabet[Math.floor(Math.random() * (upperCaseAlphabet.length +1))];
         i++;
       }
             
       if(numericValues && i <= numberChoice) {
-        passwordString += numbers[Math.floor(Math.random() * (numbers.length - 1))];
+        passwordString += numbers[Math.floor(Math.random() * (numbers.length +1))];
         i++;
       }
             
       if(specialCharacterChoice && i <= numberChoice){
-        passwordString += specialCharacters[Math.floor(Math.random() * (specialCharacters.length - 1))];
+        passwordString += specialCharacters[Math.floor(Math.random() * (specialCharacters.length +1))];
         i++;    
       }
     };    
